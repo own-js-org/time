@@ -1,5 +1,5 @@
 {
-  "name": "@own-js/time",
+  "name": "@own-js-org/time",
   "description": "Type-safe utility library for time, duration, and date handling.",
   "version": "1.0.0",
   "files": [
@@ -21,7 +21,12 @@
     "tsup": "^8.5.1"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
   },
   "scripts": {
     "build": "tsup ./index.ts --format esm,cjs --dts --clean --minify",

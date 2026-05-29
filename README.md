@@ -1,4 +1,4 @@
-# @own-js/time
+# @own-js-org/time
 
 A robust, type-safe utility library for time manipulation, duration
 formatting/parsing, and date handling. Built with TypeScript and optimized for
@@ -19,13 +19,13 @@ modern environments like Bun, Node.js, and Browser.
 
 ```bash
 # Using bun
-bun add @own-js/time
+bun add @own-js-org/time
 
 # Using npm
-npm install @own-js/time
+npm install @own-js-org/time
 
 # Using Deno
-deno add npm:@own-js/time
+deno add npm:@own-js-org/time
 ```
 
 ## Usage
@@ -36,7 +36,7 @@ The `sleep` function supports a `silent` option. If `silent: true`, it returns
 the cancellation reason instead of throwing an error.
 
 ```typescript
-import { sleep } from "@own-js/time";
+import { sleep } from "@own-js-org/time";
 
 // Standard usage
 await sleep(1000);
@@ -46,18 +46,18 @@ const controller = new AbortController();
 setTimeout(() => controller.abort("Timeout!"), 500);
 
 try {
-    await sleep(2000, { signal: controller.signal });
+  await sleep(2000, { signal: controller.signal });
 } catch (reason) {
-    console.log(reason); // "Timeout!"
+  console.log(reason); // "Timeout!"
 }
 
 // With AbortSignal (Silent Mode)
 const result = await sleep(2000, {
-    signal: controller.signal,
-    silent: true,
+  signal: controller.signal,
+  silent: true,
 });
 if (result?.reason) {
-    console.log("Aborted because:", result.reason);
+  console.log("Aborted because:", result.reason);
 }
 ```
 
@@ -66,7 +66,7 @@ if (result?.reason) {
 Easily convert time units. Supports `ms`, `s`, `m`, `h`, `d`.
 
 ```typescript
-import { formatDuration, Hour, Minute, parseDuration } from "@own-js/time";
+import { formatDuration, Hour, Minute, parseDuration } from "@own-js-org/time";
 
 // Format: ms -> String
 formatDuration(Hour + (Minute * 30) + 500); // "1h30m500ms"
@@ -83,7 +83,7 @@ const ms = parseDuration("invalid", { silent: true }); // null
 A lightweight alternative to heavier libraries, with strict validation.
 
 ```typescript
-import { formatDate, parseDate } from "@own-js/time";
+import { formatDate, parseDate } from "@own-js-org/time";
 
 const now = new Date();
 
